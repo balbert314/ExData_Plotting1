@@ -8,7 +8,7 @@ if (!exists("powerdata")) {
   as.Date(powerdata$Date, format="%d/%m/%Y") -> powerdata$Date
 }
 
-png(filename="plot1.png",width=480,height=480,units="px")
-hist(powerdata$Global_active_power, xlab = "Global Active Poswer (kilowatts)", col="Red", main = "Global Active Power")
+png(filename="plot2.png",width=480,height=480,units="px")
+plot(powerdata$DateTime,powerdata$Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "n")
+lines(powerdata$DateTime,powerdata$Global_active_power)
 dev.off()
-

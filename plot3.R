@@ -8,7 +8,10 @@ if (!exists("powerdata")) {
   as.Date(powerdata$Date, format="%d/%m/%Y") -> powerdata$Date
 }
 
-png(filename="plot1.png",width=480,height=480,units="px")
-hist(powerdata$Global_active_power, xlab = "Global Active Poswer (kilowatts)", col="Red", main = "Global Active Power")
+png(filename="plot3.png",width=480,height=480,units="px")
+plot(powerdata$DateTime,powerdata$Sub_metering_1,xlab="",ylab="Energy sub metering",type="n")
+lines(powerdata$DateTime,powerdata$Sub_metering_1,col="black")
+lines(powerdata$DateTime,powerdata$Sub_metering_2,col="red")
+lines(powerdata$DateTime,powerdata$Sub_metering_3,col="blue")
+legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty=c(1,1,1),col=c("black","red","blue"))
 dev.off()
-
